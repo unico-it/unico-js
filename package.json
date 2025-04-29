@@ -1,0 +1,28 @@
+{
+	"name": "unico-js",
+	"version": "0.0.3",
+	"description": "A Javascript library to interact with the UNICO API.",
+	"author": "UNICO",
+	"license": "MIT",
+	"keywords": [
+		"npm",
+		"ai",
+		"api",
+		"unico",
+		"javascript"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/unico-it/unico-js.git"
+	},
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"start": "node dist/index.js"
+	},
+	"devDependencies": {
+		"@types/node-fetch": "^2.6.12",
+		"typescript": "^5.8.3"
+	}
+}

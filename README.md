@@ -1,0 +1,86 @@
+# UNICO JavaScript Library
+
+A Javascript library to interact with the UNICO API. This library allows developers to easily integrate their applications with the UNICO platform by providing a simple interface to the available API endpoints. With just an API key, users can authenticate and start interacting with UNICO services, including retrieving available agents, add contexts and generating completions via intelligent agents.
+
+## Getting Started
+
+```
+npm i unico-js
+```
+
+## Usage
+
+First of all you need to create a client
+
+```javascript
+const client = new UnicoClient("your-unico-api-key");
+```
+
+- Retrieve your agents
+
+```javascript
+const agents = await client.agents.retrieve();
+console.log(agents);
+```
+
+- Create a completion
+
+```javascript
+const completions = await client.completions.create({
+	agent: "your-agent-name",
+	query: "Hello World!",
+});
+console.log(completions);
+```
+
+- Add contexts to an agent
+
+```javascript
+const contexts = await client.contexts.create({
+	agent: "your-agent-name",
+	contexts: ["your-context-1", "your-context-2"],
+});
+console.log(contexts);
+```
+
+## Deployment
+
+- **Install [nvm](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)** (node version manager):
+
+- **Use the same node version from the `.nvmrc` file**:
+  - For Windows:
+    ```sh
+    nvm use $(Get-Content .nvmrc)
+    ```
+  - For Other Systems:
+    ```sh
+    nvm use
+    ```
+- **Install the necessary packages**:
+
+  ```sh
+  npm install
+  ```
+
+## Before pushing
+
+**See if you have any rebase to do** (you must have the updated commits history before pushing to avoid conflicts
+between main and your branch):
+
+```sh
+git fetch
+git pull origin main --rebase
+```
+
+## Contributing
+
+If you want to contribute to **UNICO Python package**, follow these steps:
+
+1. Create a new branch for your changes (`git checkout -b your-branch-name`).
+2. Make your changes and commit them (`git commit -m 'Changed something'`).
+3. Push your branch (`git push origin your-branch-name`).
+4. Open a pull request.
+
+## Contact
+
+For more information, contact the **UNICO** support team at: info@theunico.it
