@@ -20,10 +20,10 @@ export default class Agents {
 			const data = (await response.json()) as { error: string };
 
 			if (data && data.error) {
-				throw new Error(`Error: ${data.error}`);
+				throw new Error(data.error);
 			}
 
-			throw new Error(`${response.statusText}`);
+			throw new Error(response.statusText);
 		}
 
 		const data = await response.json();
