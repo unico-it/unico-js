@@ -1,0 +1,31 @@
+name: CD Pipeline
+
+on:
+    push:
+      branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js from .nvmrc
+      uses: actions/setup-node@v2
+      with:
+        node-version-file: .nvmrc
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Bump version
+      run: |
+        npm version patch --no-git-tag-version
+
+    - name: Publish to npm
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: |
+        npm publish
