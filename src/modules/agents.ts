@@ -9,9 +9,9 @@ export default class Agents {
 
 	async retrieve(): Promise<any> {
 		const response = await fetch(`${this.baseUrl}/agents`, {
-			method: "GET",
+			method: 'GET',
 			headers: {
-				"Content-Type": "application/json",
+				'Content-Type': 'application/json',
 				Authorization: `Bearer ${this.unicoApiKey}`,
 			},
 		});

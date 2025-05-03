@@ -9,9 +9,9 @@ export default class Completions {
 
 	async create(body: { agent: string; query: string }): Promise<any> {
 		const response = await fetch(`${this.baseUrl}/completions`, {
-			method: "POST",
+			method: 'POST',
 			headers: {
-				"Content-Type": "application/json",
+				'Content-Type': 'application/json',
 				Authorization: `Bearer ${this.unicoApiKey}`,
 			},
 			body: JSON.stringify(body),
