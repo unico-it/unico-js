@@ -19,14 +19,14 @@ const client = new UnicoClient("your-unico-api-key");
 - Retrieve your agents
 
 ```javascript
-const agents = await client.agents.retrieve();
+const agents: Agent[] = await client.agents.retrieve();
 console.log(agents);
 ```
 
 - Create a completion
 
 ```javascript
-const completion = await client.completions.create({
+const completion: Completion = await client.completions.create({
 	agent: "your-agent-name",
 	query: "Hello World!",
 });
