@@ -35,5 +35,21 @@ declare module 'unico-js' {
       constructor(unicoApiKey: string, baseUrl: string);
       create(body: { agent: string; contexts: string[] }): Promise<any>;
     }
+
+    export interface Agent {
+      id: string;
+      name: string;
+      description: string;
+      is_shared: boolean;
+      is_owner: boolean;
+      creation_date: Date;
+      update_date: Date;
+    }
+    
+    export interface Completion {
+      text: string;
+      engine: string;
+      model: string;
+    }
   }
   

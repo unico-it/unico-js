@@ -1,3 +1,5 @@
+import type { Completion } from '../types/Completion';
+
 export default class Completions {
 	private unicoApiKey: string;
 	private baseUrl: string;
@@ -7,7 +9,7 @@ export default class Completions {
 		this.baseUrl = baseUrl;
 	}
 
-	async create(body: { agent: string; query: string }): Promise<any> {
+	async create(body: { agent: string; query: string }): Promise<Completion> {
 		const response = await fetch(`${this.baseUrl}/completions`, {
 			method: 'POST',
 			headers: {

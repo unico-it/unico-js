@@ -1,3 +1,5 @@
+import type { Agent } from '../types/Agent';
+
 export default class Agents {
 	private unicoApiKey: string;
 	private baseUrl: string;
@@ -7,7 +9,7 @@ export default class Agents {
 		this.baseUrl = baseUrl;
 	}
 
-	async retrieve(): Promise<any> {
+	async retrieve(): Promise<Agent[]> {
 		const response = await fetch(`${this.baseUrl}/agents`, {
 			method: 'GET',
 			headers: {
@@ -26,7 +28,7 @@ export default class Agents {
 			throw new Error(response.statusText);
 		}
 
-		const data = await response.json();
+		const data = (await response.json()).agents;
 		return data;
 	}
 }

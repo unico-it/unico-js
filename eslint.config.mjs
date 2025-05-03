@@ -20,6 +20,7 @@ export default tseslint.config({
 	ignores: [
 		"**/*.config.*",
 		"node_modules/**/*",
+		"dist/**/*",
 		".git/",
 		".vscode/",
 		".github/",
