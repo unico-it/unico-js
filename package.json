@@ -1,6 +1,6 @@
 {
 	"name": "unico-js",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "A Javascript library to interact with the UNICO API.",
 	"author": "UNICO",
 	"license": "MIT",
@@ -19,10 +19,15 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"build": "tsc",
-		"start": "node dist/index.js"
+		"start": "node dist/index.js",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
 	},
 	"devDependencies": {
+		"@eslint/js": "^9.26.0",
 		"@types/node-fetch": "^2.6.12",
-		"typescript": "^5.8.3"
+		"eslint": "^9.26.0",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.31.1"
 	}
 }

@@ -1,6 +1,6 @@
 # UNICO JavaScript Library
 
-A Javascript library to interact with the UNICO API. This library allows developers to easily integrate their applications with the UNICO platform by providing a simple interface to the available API endpoints. With just an API key, users can authenticate and start interacting with UNICO services, including retrieving available agents, add contexts and generating completions via intelligent agents.
+A JavaScript library to interact with the UNICO API. This library allows developers to easily integrate their applications with the UNICO platform by providing a simple interface to the available API endpoints. With just an API key, users can authenticate and start interacting with UNICO services, including retrieving available agents, add contexts and generating completions.
 
 ## Getting Started
 
@@ -19,28 +19,27 @@ const client = new UnicoClient("your-unico-api-key");
 - Retrieve your agents
 
 ```javascript
-const agents = await client.agents.retrieve();
+const agents: Agent[] = await client.agents.retrieve();
 console.log(agents);
 ```
 
 - Create a completion
 
 ```javascript
-const completions = await client.completions.create({
+const completion: Completion = await client.completions.create({
 	agent: "your-agent-name",
 	query: "Hello World!",
 });
-console.log(completions);
+console.log(completion);
 ```
 
 - Add contexts to an agent
 
 ```javascript
-const contexts = await client.contexts.create({
+await client.contexts.create({
 	agent: "your-agent-name",
 	contexts: ["your-context-1", "your-context-2"],
 });
-console.log(contexts);
 ```
 
 ## Deployment
@@ -64,17 +63,40 @@ console.log(contexts);
 
 ## Before pushing
 
-**See if you have any rebase to do** (you must have the updated commits history before pushing to avoid conflicts
-between main and your branch):
+1. **See if you have any rebase to do** (you must have the updated commits history before pushing to avoid conflicts between main and your branch):
 
 ```sh
 git fetch
 git pull origin main --rebase
 ```
 
+2. **Dry run npm publish to check if your code will be deployed**:
+
+```sh
+npm publish --dry-run
+```
+
+3. **Check for vulnerabilities to avoid security issues**:
+
+```sh
+npm audit --audit-level=high
+```
+
+4. **Lint your code to avoid ESLint errors** (if the following command return errors or warnings you must resolve them before pushing):
+
+```sh
+npm run lint
+```
+
+5. **Update the library version based on your changes** (make sure to commit the changes before running the following command):
+
+```sh
+npm version patch
+```
+
 ## Contributing
 
-If you want to contribute to **UNICO Python package**, follow these steps:
+If you want to contribute to **UNICO JavaScript Library**, follow these steps:
 
 1. Create a new branch for your changes (`git checkout -b your-branch-name`).
 2. Make your changes and commit them (`git commit -m 'Changed something'`).

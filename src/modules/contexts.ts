@@ -9,9 +9,9 @@ export default class Contexts {
 
 	async create(body: { agent: string; contexts: string[] }): Promise<any> {
 		const response = await fetch(`${this.baseUrl}/contexts/create`, {
-			method: "POST",
+			method: 'POST',
 			headers: {
-				"Content-Type": "application/json",
+				'Content-Type': 'application/json',
 				Authorization: `Bearer ${this.unicoApiKey}`,
 			},
 			body: JSON.stringify(body),
