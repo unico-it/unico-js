@@ -37,7 +37,6 @@ export default class Completions {
 			throw new Error(response.statusText);
 		}
 
-		const data = await response.json();
-		return data;
+		return await response.json();
 	}
 }

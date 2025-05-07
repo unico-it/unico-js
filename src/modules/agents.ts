@@ -38,7 +38,6 @@ export default class Agents {
 			throw new Error(response.statusText);
 		}
 
-		const data = (await response.json()).agents;
-		return data;
+		return (await response.json()).agents;
 	}
 }

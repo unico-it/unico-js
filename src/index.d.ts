@@ -38,7 +38,7 @@ declare module 'unico-js' {
 		private agentId?: number;
 
 		constructor(unicoApiKey: string, baseUrl: string, agentId?: number);
-		create(contexts: string[]): Promise<void>;
+		create(contexts: string[]): Promise<any>;
 	}
 
 	export interface Agent {
