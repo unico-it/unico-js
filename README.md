@@ -8,41 +8,41 @@ A JavaScript library to interact with the UNICO API. This library allows develop
 npm i unico-js
 ```
 
-## Usage
+### Create a client
 
-First of all you need to create a client
+- Default environment (production):
 
 ```javascript
 const client = new UnicoClient("your-unico-api-key");
 ```
 
-- Retrieve your agents
+- Point to another UNICO environment (develop purpouses only):
+
+```javascript
+const client = new UnicoClient("your-unico-api-key", "your-unico-api-base-url");
+```
+
+### Retrieve your agents
 
 ```javascript
 const agents: Agent[] = await client.agents.retrieve();
 console.log(agents);
 ```
 
-- Create a completion
+### Create a completion
 
 ```javascript
-const completion: Completion = await client.completions.create({
-	agent: "your-agent-name",
-	query: "Hello World!",
-});
+const completion: Completion = await client.agent(id).completions.create("Hello World!");
 console.log(completion);
 ```
 
-- Add contexts to an agent
+### Add contexts to an agent
 
 ```javascript
-await client.contexts.create({
-	agent: "your-agent-name",
-	contexts: ["your-context-1", "your-context-2"],
-});
+await client.agent(id).contexts.create(["context 1", "context 2"]);
 ```
 
-## Deployment
+## Development
 
 - **Install [nvm](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)** (node version manager):
 
