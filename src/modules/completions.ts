@@ -3,20 +3,28 @@ import type { Completion } from '../types/Completion';
 export default class Completions {
 	private unicoApiKey: string;
 	private baseUrl: string;
+	private agentId?: number;
 
-	constructor(unicoApiKey: string, baseUrl: string) {
+	constructor(unicoApiKey: string, baseUrl: string, agentId?: number) {
 		this.unicoApiKey = unicoApiKey;
 		this.baseUrl = baseUrl;
+		this.agentId = agentId;
 	}
 
-	async create(body: { agent: string; query: string }): Promise<Completion> {
-		const response = await fetch(`${this.baseUrl}/completions`, {
+	async create(query: string): Promise<Completion> {
+		if (!this.agentId) {
+			throw new Error('agentId is not set. Please select an agent.');
+		}
+
+		const response = await fetch(`${this.baseUrl}/agents/${this.agentId}/completions`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${this.unicoApiKey}`,
 			},
-			body: JSON.stringify(body),
+			body: JSON.stringify({
+				query: query,
+			}),
 		});
 
 		if (!response.ok) {
@@ -29,7 +37,6 @@ export default class Completions {
 			throw new Error(response.statusText);
 		}
 
-		const data = await response.json();
-		return data;
+		return await response.json();
 	}
 }

@@ -1,12 +1,22 @@
 import type { Agent } from '../types/Agent';
+import Completions from './completions';
+import Contexts from './contexts';
 
 export default class Agents {
 	private unicoApiKey: string;
 	private baseUrl: string;
+	private agentId?: number;
 
-	constructor(unicoApiKey: string, baseUrl: string) {
+	public contexts: Contexts;
+	public completions: Completions;
+
+	constructor(unicoApiKey: string, baseUrl: string, agentId?: number) {
 		this.unicoApiKey = unicoApiKey;
 		this.baseUrl = baseUrl;
+		this.agentId = agentId;
+
+		this.contexts = new Contexts(this.unicoApiKey, this.baseUrl, this.agentId);
+		this.completions = new Completions(this.unicoApiKey, this.baseUrl, this.agentId);
 	}
 
 	async retrieve(): Promise<Agent[]> {
@@ -28,7 +38,6 @@ export default class Agents {
 			throw new Error(response.statusText);
 		}
 
-		const data = (await response.json()).agents;
-		return data;
+		return (await response.json()).agents;
 	}
 }
