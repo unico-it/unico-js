@@ -3,20 +3,14 @@ import type { Completion } from '../types/Completion';
 export default class Completions {
 	private unicoApiKey: string;
 	private baseUrl: string;
-	private agentId?: number;
 
-	constructor(unicoApiKey: string, baseUrl: string, agentId?: number) {
+	constructor(unicoApiKey: string, baseUrl: string) {
 		this.unicoApiKey = unicoApiKey;
 		this.baseUrl = baseUrl;
-		this.agentId = agentId;
 	}
 
-	async create(query: string): Promise<Completion> {
-		if (!this.agentId) {
-			throw new Error('agentId is not set. Please select an agent.');
-		}
-
-		const response = await fetch(`${this.baseUrl}/agents/${this.agentId}/completions`, {
+	async create(agentId: number, query: string): Promise<Completion> {
+		const response = await fetch(`${this.baseUrl}/agents/${agentId}/completions`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
