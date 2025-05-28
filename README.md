@@ -32,14 +32,14 @@ console.log(agents);
 ### Create a completion
 
 ```javascript
-const completion: Completion = await client.agent(id).completions.create("Hello World!");
+const completion: Completion = await client.agents.completions.create(0, "Hello World!");
 console.log(completion);
 ```
 
 ### Add contexts to an agent
 
 ```javascript
-await client.agent(id).contexts.create(["context 1", "context 2"]);
+await client.agents.contexts.create(0, ["context 1", "context 2"]);
 ```
 
 ## Development

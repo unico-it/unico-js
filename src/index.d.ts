@@ -6,7 +6,6 @@ declare module 'unico-js' {
 		public agents: Agents;
 
 		constructor(unicoApiKey: string, baseUrl?: string);
-		agent(agentId: number): Agents;
 		getUnicoApiKey(): string;
 		getBaseUrl(): string;
 	}
@@ -14,31 +13,28 @@ declare module 'unico-js' {
 	export class Agents {
 		private unicoApiKey: string;
 		private baseUrl: string;
-		private agentId?: number;
 
 		public contexts: Contexts;
 		public completions: Completions;
 
-		constructor(unicoApiKey: string, baseUrl: string, agentId?: number);
+		constructor(unicoApiKey: string, baseUrl: string);
 		retrieve(): Promise<Agent[]>;
 	}
 
 	export class Completions {
 		private unicoApiKey: string;
 		private baseUrl: string;
-		private agentId?: number;
 
-		constructor(unicoApiKey: string, baseUrl: string, agentId?: number);
-		create(query: string): Promise<Completion>;
+		constructor(unicoApiKey: string, baseUrl: string);
+		create(agentId: number, query: string): Promise<Completion>;
 	}
 
 	export class Contexts {
 		private unicoApiKey: string;
 		private baseUrl: string;
-		private agentId?: number;
 
-		constructor(unicoApiKey: string, baseUrl: string, agentId?: number);
-		create(contexts: string[]): Promise<any>;
+		constructor(unicoApiKey: string, baseUrl: string);
+		create(agentId: number, contexts: string[]): Promise<any>;
 	}
 
 	export interface Agent {

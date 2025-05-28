@@ -13,10 +13,6 @@ export class UnicoClient {
 		this.agents = new Agents(this.unicoApiKey, this.baseUrl);
 	}
 
-	agent(agentId: number): Agents {
-		return new Agents(this.unicoApiKey, this.baseUrl, agentId);
-	}
-
 	getUnicoApiKey(): string {
 		return this.unicoApiKey;
 	}
