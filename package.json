@@ -1,6 +1,6 @@
 {
 	"name": "unico-js",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"description": "A Javascript library to interact with the UNICO API.",
 	"author": "UNICO",
 	"license": "MIT",
@@ -25,6 +25,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.26.0",
+		"@types/node": "^22.15.24",
 		"@types/node-fetch": "^2.6.12",
 		"eslint": "^9.26.0",
 		"typescript": "^5.8.3",
