@@ -7,7 +7,7 @@ export default class Contexts {
 		this.baseUrl = baseUrl;
 	}
 
-	async create(agentId: number, contexts: string[]): Promise<any> {
+	async create(agentId: string, contexts: string[]): Promise<any> {
 		const response = await fetch(`${this.baseUrl}/agents/${agentId}/contexts/create`, {
 			method: 'POST',
 			headers: {
