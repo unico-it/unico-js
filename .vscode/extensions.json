@@ -3,7 +3,6 @@
         "dbaeumer.vscode-eslint",
         "oxc-project.oxc-vscode",
         "github.vscode-pull-request-github",
-        "github.vscode-github-actions",
-        "bradlc.vscode-tailwindcss"
+        "github.vscode-github-actions"
     ]
 }
