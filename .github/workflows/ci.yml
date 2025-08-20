@@ -21,6 +21,11 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
+    - name: Lint code
+      run: |
+        echo "Running ESLint"
+        npm run lint
+
     - name: Check for vulnerabilities
       run: npm audit --audit-level=high
 

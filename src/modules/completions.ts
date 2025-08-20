@@ -9,7 +9,7 @@ export default class Completions {
 		this.baseUrl = baseUrl;
 	}
 
-	async create(agentId: number, query: string): Promise<Completion> {
+	async create(agentId: string, query: string): Promise<Completion> {
 		const response = await fetch(`${this.baseUrl}/agents/${agentId}/completions`, {
 			method: 'POST',
 			headers: {
