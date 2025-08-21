@@ -94,6 +94,16 @@ npm run lint
 npm version patch
 ```
 
+## Publishing the package
+
+The package is automatically published to npm through GitHub Actions when creating a new release on GitHub.
+
+1. **Create a new release** on GitHub with a version tag (e.g., `v0.1.0`)
+2. **GitHub Actions automatically triggers** and publishes the package to npm
+3. **Manually update** the `package.json` and `package-lock.json` files to reflect the newly published version
+
+**N.B.** The `package.json` and `package-lock.json` version should always match the last successfully published version on npm.
+
 ## Contributing
 
 If you want to contribute to **UNICO JavaScript Library**, follow these steps:
